@@ -34,7 +34,11 @@ Module.register("MMM-HolidayLights", {
     },
 
     getStyles: function() {
-        return ["modules/MMM-HolidayLights/css/" + this.config.css + ".css"];
+        let cssFile = this.config.css
+        if(!cssFile.includes("css")) {
+            cssFile = cssFile + ".css"
+        }
+        return [this.data.path + "css/" + cssFile];
     },
 
     start: function() {
